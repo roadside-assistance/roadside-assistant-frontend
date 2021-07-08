@@ -15,6 +15,7 @@ import BlogPosts from "./views/BlogPosts";
 import SomeForm from "./views/RecriutStateManager";
 import RecriutStateManager from "./views/RecriutStateManager";
 import Reports from "./views/Reports";
+import dissolution from "./views/Dissolution";
 
 export default [
     {
@@ -66,5 +67,10 @@ export default [
         path: "/reports",
         layout: DefaultLayout,
         component: Reports,
+    },
+    {
+        path: "/dissolution",
+        layout: DefaultLayout,
+        component: dissolution,
     }
 ];

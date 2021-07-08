@@ -43,6 +43,11 @@ export default function() {
       title: "Reports",
       htmlBefore: '<i class="material-icons">view_module</i>',
       to: "/reports",
+    },
+    {
+      title: "dissolution",
+      htmlBefore: '<i class="material-icons">not_interested</i>',
+      to: "/dissolution",
     }
   ];
 }
