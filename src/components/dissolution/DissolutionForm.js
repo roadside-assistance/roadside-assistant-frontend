@@ -9,30 +9,34 @@ import {
     FormGroup,
     FormCheckbox,
     FormSelect,
-    Button, FormTextarea
+    Button, FormTextarea, InputGroupAddon, InputGroupText, InputGroup
 } from "shards-react";
 
 const DissolutionForm = () => (
     <ListGroup flush>
         <ListGroupItem className="p-3">
-            <Row>
+            <Row md="5">
                 <Col>
                     <Form>
-                        <Row form>
-                            <Col md="4" className="form-group">
-                                <label htmlFor="feInputState">State</label>
+                        <Row form >
+                            <Col md="2" className="form-group">
+                                <label htmlFor="feInputState">Type</label>
                                 <FormSelect id="feInputState">
-                                    <option>Choose...</option>
-                                    <option>...</option>
+                                    <option>Type...</option>
+                                    <option>State Expert</option>
+                                    <option>Rescue Forces</option>
                                 </FormSelect>
                             </Col>
-                            <Col md="6" className="form-group">
-                                <label htmlFor="Search">Search</label>
-                                <FormInput
-                                    id="Search"
-                                    type="text-area"
-                                    placeholder="Search..."
-                                />
+                            <Col md="10" className="form-group">
+                                <label htmlFor="Search">User</label>
+                                <InputGroup seamless className="mb-3">
+                                    <InputGroupAddon type="prepend">
+                                        <InputGroupText>
+                                            <i className="material-icons">person</i>
+                                        </InputGroupText>
+                                    </InputGroupAddon>
+                                    <FormInput value="Al Sobhani" onChange={() => {}} />
+                                </InputGroup>
                             </Col>
                         </Row>
 

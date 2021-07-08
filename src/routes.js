@@ -12,9 +12,11 @@ import Errors from "./views/Errors";
 import ComponentsOverview from "./views/ComponentsOverview";
 import Tables from "./views/Tables";
 import BlogPosts from "./views/BlogPosts";
-import SomeForm from "./views/RecriutStateManager";
-import RecriutStateManager from "./views/RecriutStateManager";
+import Recriut from "./views/Recriut";
 import Reports from "./views/Reports";
+import RecriutComp from "./views/RecriutComp";
+import CreateTeam from "./views/CreateTeam";
+import EditTeam from "./views/EditTeam";
 import dissolution from "./views/Dissolution";
 
 export default [
@@ -60,13 +62,25 @@ export default [
         component: BlogPosts
     },
     {
-        path: "/recruit-country-manager",
+        path: "/recruit",
         layout: DefaultLayout,
-        component: RecriutStateManager,
+        component: Recriut,
+    },{
+        path: "/recruit-comp",
+        layout: DefaultLayout,
+        component: RecriutComp,
     }, {
         path: "/reports",
         layout: DefaultLayout,
         component: Reports,
+    }, {
+        path: "/create-team",
+        layout: DefaultLayout,
+        component: CreateTeam,
+    } ,{
+        path: "/edit-team",
+        layout: DefaultLayout,
+        component: EditTeam,
     },
     {
         path: "/dissolution",
