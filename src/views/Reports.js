@@ -37,17 +37,62 @@ class ComponentsOverview extends React.Component {
         super(props);
         this.state = {
             isLoaded: false,
-            items: []
+            items: [],
+            select: "Problems",
+            headers: []
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.fetchData = this.fetchData.bind(this)
+    }
+
+    handleChange(e) {
+        console.log(e.target.value);
+        this.setState({select: e.target.value},
+            () =>
+                this.fetchData())
     }
 
     componentWillMount() {
-        fetch('http://207.182.143.36/:8080/problem-solving/problems/', {
+        this.fetchData();
+    }
+
+    fetchData() {
+        let link = ''
+        let headers = ['a', 'ab']
+        console.log('fetch', this.state.select)
+        switch (this.state.select) {
+            case 'Problems':
+                link = 'http://localhost:8080/problem-solving/problems/';
+                headers = [
+                    '#', 'Address', 'Description', 'Status', '# of needed workers', 'Inspector Id', 'Team Id', 'Issuer Id'
+                ]
+                break
+            case 'Machinery':
+                link = 'http://localhost:8080/machine-resources/machines/'
+                headers = ['Id', 'Name', 'Type', 'Status']
+                break
+            case 'Citizen':
+                link = 'http://localhost:8080/human-resources/citizen/'
+                headers = ['Id', 'First Name', 'Last Name', 'Phone Number', 'Masked Password', 'City']
+            case 'Inspector':
+                link = 'http://localhost:8080/human-resources/inspector/'
+                headers = [
+                    'Id',
+                    'First Name',
+                    'Last Name',
+                    'Phone Number',
+                    'Masked Pass',
+                    'Salary',
+                    'Town Under Control'
+                ]
+
+        }
+        fetch(link, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
-            mode : 'cors'
+            // mode : 'cors'
         })
             .then(res => {
                 return res.json()
@@ -55,7 +100,8 @@ class ComponentsOverview extends React.Component {
             .then(json => {
                 this.setState({
                     isLoaded: true,
-                    items: json
+                    items: json,
+                    headers: headers
                 })
                 console.log(this.state.items)
             })
@@ -63,7 +109,7 @@ class ComponentsOverview extends React.Component {
 
     render() {
 
-        var {isLoaded, items} = this.state
+        var {isLoaded, items, select, headers} = this.state
         if (!isLoaded) {
             return <div>
                 loading ...
@@ -91,30 +137,15 @@ class ComponentsOverview extends React.Component {
                                         <table className="table mb-0">
                                             <thead className="bg-light">
                                             <tr>
-                                                <th scope="col" className="border-0">
-                                                    #
-                                                </th>
-                                                <th scope="col" className="border-0">
-                                                    Address
-                                                </th>
-                                                <th scope="col" className="border-0">
-                                                    Description
-                                                </th>
-                                                <th scope="col" className="border-0">
-                                                    Status
-                                                </th>
-                                                <th scope="col" className="border-0">
-                                                    # of needed workers
-                                                </th>
-                                                <th scope="col" className="border-0">
-                                                    Inspector Id
-                                                </th>
-                                                <th scope="col" className="border-0">
-                                                    Team Id
-                                                </th>
-                                                <th scope="col" className="border-0">
-                                                    Issuer Id
-                                                </th>
+                                                {
+                                                    headers.map(
+                                                        item => (
+                                                            <th scope="col" className="border-0">
+                                                                {item}
+                                                            </th>
+                                                        )
+                                                    )
+                                                }
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -122,14 +153,11 @@ class ComponentsOverview extends React.Component {
                                                 items.map(
                                                     item => (
                                                         <tr>
-                                                            <td>{item.id}</td>
-                                                            <td>{item.address}</td>
-                                                            <td>{item.description}</td>
-                                                            <td>{item.status}</td>
-                                                            <td>{item.number_of_needed_workers}</td>
-                                                            <td>{item.assigned_to_inspector}</td>
-                                                            <td>{item.assigned_to_team}</td>
-                                                            <td>{item.issuer}</td>
+                                                            {Object.values(item).map(
+                                                                a => (
+                                                                    <td>{a}</td>
+                                                                )
+                                                            )}
                                                         </tr>
                                                     )
                                                 )
@@ -156,11 +184,12 @@ class ComponentsOverview extends React.Component {
                                             </strong>
                                             <div>
                                                 <InputGroup className="mb-3">
-                                                    <FormSelect>
+                                                    <FormSelect value={this.state.select} onChange={this.handleChange}>
                                                         <option>Choose</option>
-                                                        <option>Machinery</option>
-                                                        <option>Human Resources</option>
-                                                        <option>Problems</option>
+                                                        <option value='Machinery'>Machinery</option>
+                                                        <option value='Problems'>Problems</option>
+                                                        <option value='Citizen'>Citizen</option>
+                                                        <option value='Inspector'>Inspector</option>
                                                     </FormSelect>
                                                     <InputGroupAddon type="append">
                                                         <InputGroupText>Options</InputGroupText>

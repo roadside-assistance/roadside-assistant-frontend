@@ -1,0 +1,112 @@
+Index: src/views/Reports.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/views/Reports.js b/src/views/Reports.js
+--- a/src/views/Reports.js	(revision dc6e44330a3fc4d4fe0548739002d97ac5252a5a)
++++ b/src/views/Reports.js	(date 1629660868139)
+@@ -42,23 +42,86 @@
+     }
+ 
+     componentWillMount() {
+-        fetch('http://207.182.143.36/:8080/problem-solving/problems/', {
+-            method: 'GET',
+-            headers: {
+-                'Content-Type': 'application/json',
+-            },
+-            mode : 'cors'
+-        })
+-            .then(res => {
+-                return res.json()
+-            })
+-            .then(json => {
+-                this.setState({
+-                    isLoaded: true,
+-                    items: json
+-                })
+-                console.log(this.state.items)
+-            })
++        // fetch('http://207.182.143.36/:8080/problem-solving/problems/', {
++        //     method: 'GET',
++        //     headers: {
++        //         'Content-Type': 'application/json',
++        //     },
++        //     mode : 'cors'
++        // })
++        //     .then(res => {
++        //         return res.json()
++        //     })
++        //     .then(json => {
++        this.setState({
++            isLoaded: true,
++            // items: json
++            items: [
++                {
++                    id: '1',
++                    address: 'Calista Wise\n' +
++                        '7292 Dictum Av.\n' +
++                        'San Antonio MI 47096\n' +
++                        '(492) 709-6392',
++                    description: 'test ',
++                    status: 'ENDED',
++                    number_of_needed_workers: '23',
++                    assigned_to_inspector: '2',
++                    assigned_to_team: '1',
++                    issuer: 10,
++                },{
++                    id: '2',
++                    address: 'Theodore Lowe\n' +
++                        'Ap #867-859 Sit Rd.\n' +
++                        'Azusa New York 39531\n' +
++                        '(793) 151-6230',
++                    description: 'test desc',
++                    status: 'ASSIGNED',
++                    number_of_needed_workers: '3',
++                    assigned_to_inspector: '1',
++                    assigned_to_team: '4',
++                    issuer: 5,
++                },{
++                    id: '4',
++                    address: 'Celeste Slater\n' +
++                        '606-3727 Ullamcorper. Street\n' +
++                        'Roseville NH 11523\n' +
++                        '(786) 713-8616',
++                    description: 'test des',
++                    status: 'APPROVED',
++                    number_of_needed_workers: '1',
++                    assigned_to_inspector: '9',
++                    assigned_to_team: '2',
++                    issuer: 6,
++                },,{
++                    id: '5',
++                    address: 'Iris Watson\n' +
++                        'P.O. Box 283 8562 Fusce Rd.\n' +
++                        'Frederick Nebraska 20620\n' +
++                        '(372) 587-2335',
++                    description: 'test des',
++                    status: 'ENDED',
++                    number_of_needed_workers: '3',
++                    assigned_to_inspector: '4',
++                    assigned_to_team: '3',
++                    issuer: 6,
++                },,{
++                    id: '9',
++                    address: 'Cecilia Chapman\n' +
++                        '711-2880 Nulla St.\n' +
++                        'Mankato Mississippi 96522\n' +
++                        '(257) 563-7401',
++                    description: 'test desccccccc cccc cccccccccc ccccccc ccccccccc ccccccccccc cccccccc ccccccccccc',
++                    status: 'ENDED',
++                    number_of_needed_workers: '5',
++                    assigned_to_inspector: '11',
++                    assigned_to_team: '8',
++                    issuer: 6,
++                },
++            ]
++        })
++        // console.log(this.state.items)
++        // })
+     }
+ 
+     render() {
