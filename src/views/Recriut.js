@@ -8,7 +8,7 @@ import {
     ListGroup,
     ListGroupItem,
     Form,
-    Alert, FormInput, FormGroup, FormSelect, FormCheckbox, Button
+    FormInput, FormGroup, FormSelect, Button
 } from "shards-react";
 
 import PageTitle from "../components/common/PageTitle";
@@ -22,7 +22,7 @@ class ComponentsOverview extends React.Component {
             email: "",
             phone: '',
             pass: '',
-            sal : '',
+            sal: '',
         }
         this.handleChange = this.handleChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
@@ -41,13 +41,14 @@ class ComponentsOverview extends React.Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify( {
+            body: JSON.stringify({
                 "first_name": this.state.fname,
                 "last_name": this.state.lname,
                 "phone_number": this.state.phone,
                 "password": this.state.pass,
                 "salary": this.state.sal,
-                "town_under_control": this.state.city
+                "town_under_control": this.state.city,
+                "authority_type": this.state.authority,
             })
         })
         console.log(this.state)   // you should be able to see your form data
@@ -131,14 +132,6 @@ class ComponentsOverview extends React.Component {
                                                                onChange={this.handleChange}/>
                                                 </FormGroup>
 
-                                                <FormGroup>
-                                                    <label htmlFor="feInputAddress2">Address 2</label>
-                                                    <FormInput
-                                                        id="feInputAddress2"
-                                                        placeholder="Apartment, Studio or Floor"
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </FormGroup>
 
                                                 <Row form>
                                                     <Col md="6" className="form-group">
@@ -147,15 +140,18 @@ class ComponentsOverview extends React.Component {
                                                                    onChange={this.handleChange}/>
                                                     </Col>
                                                     <Col md="4" className="form-group">
-                                                        <label htmlFor="feInputState">State</label>
-                                                        <FormSelect id="feInputState" onChange={this.handleChange}>
-                                                            <option>Choose...</option>
-                                                            <option>...</option>
+                                                        <label htmlFor="feInputState">Authority Type</label>
+                                                        <FormSelect id="feInputState" name="authority"
+                                                                    onChange={this.handleChange}>
+                                                            <option value="STATE">State</option>
+                                                            <option value="PROVINCE">Province</option>
+                                                            <option value="COUNTRY">Country</option>
                                                         </FormSelect>
                                                     </Col>
                                                     <Col md="2" className="form-group">
                                                         <label htmlFor="feInputZip">Salary</label>
-                                                        <FormInput id="feInputZip" name='sal' onChange={this.handleChange}/>
+                                                        <FormInput id="feInputZip" name='sal'
+                                                                   onChange={this.handleChange}/>
                                                     </Col>
 
                                                 </Row>

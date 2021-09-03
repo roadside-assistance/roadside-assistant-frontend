@@ -4,10 +4,6 @@ export default function() {
       title: "Recruit",
       htmlBefore: '<i class="material-icons">note_add</i>',
       to: "/recruit",
-    },{
-      title: "Recruit : country manager",
-      htmlBefore: '<i class="material-icons">note_add</i>',
-      to: "/recruit-comp",
     }, {
       title: "Reports",
       htmlBefore: '<i class="material-icons">view_module</i>',
