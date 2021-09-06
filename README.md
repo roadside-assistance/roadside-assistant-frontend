@@ -20,10 +20,10 @@ start npm داشبورد بالا می‌آید.\
 به کمک انتخاب فیلتر مشکلات مشکلات گزارش شده در وبسایت نمایش داده می‌شود.
 
 ![گزارش‌گیری
-مشکلات](images/AppsUseDoc/dash_problems.png){width="\\linewidth"}
+مشکلات](images/AppsUseDoc/dash_problems.png)
 
 ![گزارش‌گیری
-مشکلات](images/AppsUseDoc/dash_problems2.png){width="\\linewidth"}
+مشکلات](images/AppsUseDoc/dash_problems2.png)
 
 ### گزارش نیروانسانی
 
@@ -31,10 +31,10 @@ start npm داشبورد بالا می‌آید.\
 نیروهای انسانی مربوطه در وبسایت نمایش داده می‌شود.
 
 ![گزارش‌گیری نیروانسانی(کارشناس‌های
-شهرستان)](images/AppsUseDoc/dash_inspector.png){width="\\linewidth"}
+شهرستان)](images/AppsUseDoc/dash_inspector.png)
 
 ![گزارش‌گیری
-نیروانسانی(‌مدیران)](images/AppsUseDoc/dash_country.jpg){width="\\linewidth"}
+نیروانسانی(‌مدیران)](images/AppsUseDoc/dash_country.jpg)
 
 ### گزارش ماشین‌آلات
 
@@ -42,7 +42,7 @@ start npm داشبورد بالا می‌آید.\
 داده می‌شود.
 
 ![گزارش‌گیری نیروانسانی(کارشناس‌های
-شهرستان)](images/AppsUseDoc/dash_machinery.png){width="\\linewidth"}
+شهرستان)](images/AppsUseDoc/dash_machinery.png)
 
 ### استخدام نیروانسانی
 
@@ -50,10 +50,10 @@ start npm داشبورد بالا می‌آید.\
 کرده و نیروانسانی مربوط استخدام شده و در سیستم وارد می‌شود.
 
 ![استخدام نیرو انسانی(کارشناس
-شهرستان)](images/AppsUseDoc/dash_recruit.png){width="\\linewidth"}
+شهرستان)](images/AppsUseDoc/dash_recruit.png)
 
 ![استخدام نیرو انسانی(مدیر استان
-)](images/AppsUseDoc/dash_city.jpg){width="\\linewidth"}
+)](images/AppsUseDoc/dash_city.jpg)
 
 ![استخدام نیرو انسانی(مدیر در حالت
-کلی)](images/AppsUseDoc/dash_manager.jpg){width="\\linewidth"}
+کلی)](images/AppsUseDoc/dash_manager.jpg)
